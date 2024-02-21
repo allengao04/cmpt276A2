@@ -1,0 +1,21 @@
+/* Apply styles to the entire table */
+table {
+    
+    width: 50%;
+    border-collapse: collapse; /* Remove cell spacing */
+    margin-bottom: 10px;
+  }
+  
+  /* Style the table header (optional) */
+  th {
+    background-color: #f2f2f2;
+    padding: 5px;
+    text-align: left;
+    border: 1px solid black; 
+  }
+  
+  /* Style the table rows */
+  tr {
+    border-bottom: 1px solid #ddd; /* Add a bottom border to each row */
+    
+  }
