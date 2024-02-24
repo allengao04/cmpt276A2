@@ -25,7 +25,10 @@
             <th>GPA</th>
         </tr>
     </thead>
+    <!-- show the edit page of the selected user -->
+    <!-- uid is the user id help me to get to know which person is selected, not need to be displayed -->
     <a><input type="hidden" id="uid" name="uid" th:value="${edituser.uid}"></a>
+
     <tbody>
        <tr>
             <th><input type="text" id="name" name="name" th:value="${edituser.name}"></th>

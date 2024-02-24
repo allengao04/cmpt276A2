@@ -46,6 +46,7 @@
             <th>Action</th>
         </tr>
     </thead>
+    <!-- show the table of each of the entries -->
     <tbody>
         <tr th:each="user : ${us}">
             <td th:text="${user.name}"></td>
@@ -54,8 +55,9 @@
             <td th:text="${user.haircolour}"></td>
             <td th:text="${user.gpa}"></td>
             <td>
+                <!-- delete and edit feature  -->
                 <a th:href="@{'/users/delete/' + ${user.uid}}" class="button-link button-link-danger" role="button">DELETE</a>
-            <a th:href="@{'/users/edit/' + ${user.uid}}" class="button-link" role="button">EDIT USER</a>
+                <a th:href="@{'/users/edit/' + ${user.uid}}" class="button-link" role="button">EDIT USER</a>
 
             </td>
         </tr>

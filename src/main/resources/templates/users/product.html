@@ -29,7 +29,7 @@
             border: 2px solid black;
             position: relative;
             padding: 10px;
-            display: inline-block; /* or display: flex; if you want to use flexbox properties */
+            display: inline-block; 
             min-width: 50%; 
         }
 
@@ -44,6 +44,7 @@
         <a href="/add.html">Add Users</a>
     </div>
     <h2>Student Data Virtual Display</h2>
+    <!-- show the rectangle -->
     <div class="container">
         <ul class="card-container">
             <h3 th:each="user:${user}"> 

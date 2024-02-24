@@ -2,20 +2,16 @@ package com.example.a2.controllers;
 
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.a2.models.User;
 import com.example.a2.models.UserRepository;
@@ -27,36 +23,27 @@ public class userscontroller {
     @Autowired
     private UserRepository userRepo;
 
+    // one for the table 
     @GetMapping("/users/view")
     public String getAllusers(Model model){
         System.out.println("getting all users");
         List<User> users = userRepo.findByOrderByUidAsc();
-        // List<User> users = new ArrayList<>();
-        // users.add(new User("Bobby", 150, 30, "red", 2.5));
-        // users.add(new User("Steve", 200, 30, "blue", 3.6));
-        // users.add(new User("Dan", 120, 50, "green", 4.0));
-        // // change it to database latter
         model.addAttribute("us", users);
         // us represent user
         return "users/showall";
     }
 
+    // map for the boxes
     @GetMapping("/users/home")
     public String getAllusers2(Model model){
         System.out.println("getting all users");
         List<User> users = userRepo.findByOrderByUidAsc();
-        // List<User> users = new ArrayList<>();
-        // users.add(new User("Bobby", 150, 30, "red", 2.5));
-        // users.add(new User("Steve", 200, 30, "blue", 3.6));
-        // users.add(new User("Dan", 120, 50, "green", 4.0));
-        // // change it to database latter
         model.addAttribute("user", users);
-        // us represent user
         return "users/product";
     }
 
 
-
+    // added user
     @PostMapping("/users/add")
     public String adduser(@RequestParam Map<String,String> newuser, HttpServletResponse response) {
         System.out.println("add user");
@@ -72,12 +59,14 @@ public class userscontroller {
         return "redirect:/users/home";
     }
 
+    //delete user 
     @GetMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable Integer id){
         userRepo.deleteById(id);
         return "redirect:/users/view";
     }
 
+    // get the edited user 
     @GetMapping("/users/edit/{id}")
     public String editUser(@PathVariable Integer id, Model model) {
         User user = userRepo.findByUid(id);
@@ -91,6 +80,7 @@ public class userscontroller {
         return "users/edituser"; // Make sure this is the correct name of your Thymeleaf template
     }
 
+    //get the edited info and update it 
     @PostMapping("/users/update")
     public String updateUser(@RequestParam Map<String,String> updateUser){
         System.out.println(updateUser.get("name"));
