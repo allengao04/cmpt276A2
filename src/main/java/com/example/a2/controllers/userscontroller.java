@@ -61,8 +61,8 @@ public class userscontroller {
     public String adduser(@RequestParam Map<String,String> newuser, HttpServletResponse response) {
         System.out.println("add user");
         String newName = newuser.get("name");
-        int newHeight = Integer.parseInt(newuser.get("height"));
         int newWeight = Integer.parseInt(newuser.get("weight"));
+        int newHeight = Integer.parseInt(newuser.get("height"));
         String newHaircolour = newuser.get("haircolour");
         Double newGpa = Double.parseDouble(newuser.get("gpa"));
     

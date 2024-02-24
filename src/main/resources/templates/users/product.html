@@ -48,7 +48,7 @@
         <ul class="card-container">
             <h3 th:each="user:${user}"> 
                 <div class="card" th:style="'width:' + ${user.height}*0.3 + 'px;' +
-                                        'height:' + ${user.weight}*1 + 'px;'">
+                                        'height:' + ${user.weight}*1.3 + 'px;'">
                 <div th:text="${user.name}" th:style="'color:' + ${user.haircolour}"></div>
                 <div th:text="${user.gpa}"></div>
                 </div>
