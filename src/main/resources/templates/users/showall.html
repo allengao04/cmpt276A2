@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Added Users</title>
+    <link rel="stylesheet" href="/css/cartpage.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+</head>
+<style>
+    .button-link {
+        display: inline-block;
+        padding: 6px 12px;
+        margin: 5px;
+        background-color: #5c5d64;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-link:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+
+
+<body>
+    <div class="navbar">
+        <a class="active" href="/users/home">Home</a>
+        <a href="/users/view">Char</a>
+        <a href="/add.html">Add Users</a>
+    </div>
+<h2>Student DATA</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Hair Colour</th>
+            <th>GPA</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${us}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.Weight}"></td>
+            <td th:text="${user.height}"></td>
+            <td th:text="${user.haircolour}"></td>
+            <td th:text="${user.gpa}"></td>
+            <td>
+                <a th:href="@{'/users/delete/' + ${user.uid}}" class="button-link button-link-danger" role="button">DELETE</a>
+            <a th:href="@{'/users/edit/' + ${user.uid}}" class="button-link" role="button">EDIT USER</a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

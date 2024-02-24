@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Added Users</title>
+    <link rel="stylesheet" href="/css/cartpage.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <style>
+
+        /* text container */
+        .card-container {
+            display: flex; /* Use flexbox to layout cards */
+            align-items: flex-end;
+            flex-wrap: nowrap; /* Prevent wrapping to a new line */
+        }
+
+        /* text inside the box */
+        .card {
+            border: 1px solid #000; /* Basic border */
+            padding: 10px;
+            margin: 5px;
+            display: inline-block; /* Display side by side */
+            text-align: center; /* Center the text */
+        }
+
+        /* outside boxes */
+        .container {
+            border: 2px solid black;
+            position: relative;
+            padding: 10px;
+            display: inline-block; /* or display: flex; if you want to use flexbox properties */
+            min-width: 50%; 
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="navbar">
+        <a class="active" href="/users/home">Home</a>
+        <a href="/users/view">Char</a>
+        <a href="/add.html">Add Users</a>
+    </div>
+    <h2>Student Data Virtual Display</h2>
+    <div class="container">
+        <ul class="card-container">
+            <h3 th:each="user:${user}"> 
+                <div class="card" th:style="'width:' + ${user.height}*0.3 + 'px;' +
+                                        'height:' + ${user.weight}*1 + 'px;'">
+                <div th:text="${user.name}" th:style="'color:' + ${user.haircolour}"></div>
+                <div th:text="${user.gpa}"></div>
+                </div>
+            </h3>
+        </ul>
+    </div>
+
+
+
+</body>
+</html>

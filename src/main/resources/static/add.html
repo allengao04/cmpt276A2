@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User Page</title>
+    <link rel="stylesheet" href="/css/cartpage.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+</head>
+<body>
+    <div class="navbar">
+        <a class="active" href="/users/home">Home</a>
+        <a href="/users/view">Char</a>
+        <a href="/add.html">Add Users</a>
+    </div>
+    <form action="/users/add" method="post">
+    <h2>Add Student</h2>
+    <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Hair Colour</th>
+            <th>GPA</th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr>
+            <th><input type="name" id="name" name="name" placeholder="Name"></th>
+            <th><input type="weight" id="weight" name="weight" placeholder="weight"></th>
+            <th><input type="height" id="height" name="height" placeholder="height"></th>
+            <th><input type="haircolour" id="haircolour" name="haircolour" placeholder="haircolour"></th>
+            <th><input type="gpa" id="gpa" name="gpa" placeholder="gpa"></th>
+       </tr>
+    </tbody>
+    </table>
+    <div class="d-grid gap-2">
+        <input class="btn btn-primary" type="submit" value="SEND"></input>
+    </div>
+</body>
+</html>
